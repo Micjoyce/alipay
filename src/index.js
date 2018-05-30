@@ -37,6 +37,17 @@ export default class Alipay {
     }
   }
 
+  tryParseStrToJson(str) {
+    if (typeof str !== 'string') {
+      return str
+    }
+    try {
+      return JSON.parse(str)
+    } catch (error) {
+      return str
+    }
+  }
+
   validateBasicParams (method, basicParams) {
     const params = Object.assign({}, this.options, basicParams, { method })
     return Validator.validateBasicParams(params)
@@ -61,6 +72,7 @@ export default class Alipay {
   }
 
   makeResponse (response) {
+    response = this.tryParseStrToJson(response)
     const isSucceed = response => {
       return ['10000'].indexOf(response.code) !== -1    
     }

@@ -233,7 +233,7 @@ return service.makeNotifyResponse(params)
 >在接收到蚂蚁金服服务器的订单状态变更通知之后，需要进行应答，有两种(成功、失败)应答类型：
 
 ``` javascript
-import AlipayConfig from 'alipay-mobile/config'
+import AlipayConfig from 'alipay-mobile/lib/config'
 
 console.log(AlipayConfig.ALIPAY_NOTIFY_SUCCESS) // 'success'
 
